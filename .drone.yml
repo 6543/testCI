@@ -20,6 +20,10 @@ pipeline:
       - (cd web/; yarn run lesshint)
       - (cd web/; yarn run lint --quiet)
       - make test-frontend
+    when:
+      path:
+        include: 'web/*'
+        ignore_message: '[ALL]'
 
   test-postgres:
     image: golang:1.16
